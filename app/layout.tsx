@@ -1,18 +1,18 @@
-import "./globals.css"
+import "./globals.css";
 
 export const metadata = {
-  title: "Mzazigo Kenya",
-  description: "Ride Booking Platform - Taxi & Boda"
-}
+  title: "Mzazigo",
+  description: "Ride anywhere with Mzazigo",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body>{children}</body>
     </html>
-  )
+  );
 }
