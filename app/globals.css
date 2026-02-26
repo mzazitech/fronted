@@ -1,7 +1,167 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
 body {
-  background: #f9fafb;
+  background: #f5f7fa;
+  color: #111;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  padding: 18px 40px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #00c853;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(135deg, #000 0%, #1c1c1c 100%);
+  color: #fff;
+  padding: 20px;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.hero button {
+  padding: 14px 28px;
+  border: none;
+  background: #00c853;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #00a844;
+}
+
+/* FORM CARD */
+.form-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  outline: none;
+  border: 1px solid #00c853;
+}
+
+/* FILE INPUT */
+.form-container input[type="file"] {
+  border: none;
+}
+
+/* BUTTON */
+.form-container button {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background: #00c853;
+}
+
+/* STATUS MESSAGE */
+.status-message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #00c853;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .form-container {
+    margin: 30px 15px;
+  }
 }
