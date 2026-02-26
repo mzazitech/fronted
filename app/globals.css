@@ -165,3 +165,44 @@ body {
     margin: 30px 15px;
   }
 }
+/* Error / Success */
+.error {
+  background: #ff1744;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.success {
+  background: #00c853;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Role switch buttons */
+.role-switch {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.role-switch button {
+  flex: 1;
+  padding: 10px;
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.role-switch button.active {
+  background: #00c853;
+  color: black;
+}
+
+.role-switch button:last-child {
+  margin-right: 0;
+}
