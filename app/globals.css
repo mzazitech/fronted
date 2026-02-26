@@ -166,6 +166,76 @@ body {
   }
 }
 /* Error / Success */
+/* AUTH PAGES STYLING */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #000000, #111111);
+  padding: 20px;
+}
+
+.auth-card {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 480px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.auth-card h2 {
+  margin-bottom: 8px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.auth-card p {
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card input,
+.auth-card select {
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: white;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  outline: 2px solid #00c853;
+}
+
+.auth-card button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #00c853;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-card button:hover {
+  background: #00e676;
+}
+
+/* Error / Success */
 .error {
   background: #ff1744;
   padding: 10px;
@@ -196,6 +266,8 @@ body {
   color: white;
   cursor: pointer;
   margin-right: 4px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
 .role-switch button.active {
@@ -205,4 +277,25 @@ body {
 
 .role-switch button:last-child {
   margin-right: 0;
+}
+
+/* Driver fields visually grouped */
+.driver-fields {
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  background: #222;
+}
+
+/* Form footer */
+.auth-footer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.auth-footer a {
+  color: #00c853;
+  text-decoration: none;
+  font-weight: 600;
 }
