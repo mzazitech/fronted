@@ -1,3 +1,5 @@
+import "./globals.css"
+
 export const metadata = {
   title: "Mzazigo Kenya",
   description: "Ride Booking Platform - Taxi & Boda"
@@ -10,9 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "Arial, sans-serif" }}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
