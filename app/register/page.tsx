@@ -116,94 +116,113 @@ export default function Register() {
         </div>
 
         <form onSubmit={handleRegister}>
-          {role === "customer" && (
-            <>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={form.name}
-                onChange={handleChange}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={form.phone}
-                onChange={handleChange}
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
-              />
-            </>
-          )}
+  {/* ROLE SWITCH BUTTONS */}
+  <div className="role-switch">
+    <button
+      type="button"
+      className={role === "customer" ? "active" : ""}
+      onClick={() => setRole("customer")}
+    >
+      Customer
+    </button>
+    <button
+      type="button"
+      className={role === "driver" ? "active" : ""}
+      onClick={() => setRole("driver")}
+    >
+      Driver
+    </button>
+  </div>
 
-          {role === "driver" && (
-            <>
-              <input
-                type="text"
-                name="name"
-                placeholder="First Name"
-                value={form.name}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="surname"
-                placeholder="Surname"
-                value={form.surname}
-                onChange={handleChange}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={form.phone}
-                onChange={handleChange}
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
-              />
+  {/* CONDITIONAL FIELDS */}
+  {role === "customer" && (
+    <div className="customer-fields">
+      <input
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        value={form.name}
+        onChange={handleChange}
+      />
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone Number"
+        value={form.phone}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={form.password}
+        onChange={handleChange}
+      />
+    </div>
+  )}
 
-              <label>ID Picture:</label>
-              <input type="file" name="idPic" onChange={handleChange} />
+  {role === "driver" && (
+    <div className="driver-fields">
+      <input
+        type="text"
+        name="name"
+        placeholder="First Name"
+        value={form.name}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="surname"
+        placeholder="Surname"
+        value={form.surname}
+        onChange={handleChange}
+      />
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone Number"
+        value={form.phone}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={form.password}
+        onChange={handleChange}
+      />
 
-              <label>Valid License Picture:</label>
-              <input type="file" name="licensePic" onChange={handleChange} />
+      <label>ID Picture:</label>
+      <input type="file" name="idPic" onChange={handleChange} />
 
-              <input
-                type="text"
-                name="vehiclePlate"
-                placeholder="Vehicle Plate"
-                value={form.vehiclePlate}
-                onChange={handleChange}
-              />
+      <label>License Picture:</label>
+      <input type="file" name="licensePic" onChange={handleChange} />
 
-              <select name="vehicleType" value={form.vehicleType} onChange={handleChange}>
-                <option value="Taxi">Taxi</option>
-                <option value="Boda">Boda</option>
-              </select>
+      <input
+        type="text"
+        name="vehiclePlate"
+        placeholder="Vehicle Plate"
+        value={form.vehiclePlate}
+        onChange={handleChange}
+      />
+      <select name="vehicleType" value={form.vehicleType} onChange={handleChange}>
+        <option value="Taxi">Taxi</option>
+        <option value="Boda">Boda</option>
+      </select>
 
-              <label>Insurance Document:</label>
-              <input type="file" name="insurancePic" onChange={handleChange} />
-            </>
-          )}
+      <label>Insurance Document:</label>
+      <input type="file" name="insurancePic" onChange={handleChange} />
+    </div>
+  )}
 
-          {error && <div className="error">{error}</div>}
-          {success && <div className="success">{success}</div>}
+  {/* ERROR / SUCCESS MESSAGES */}
+  {error && <div className="error">{error}</div>}
+  {success && <div className="success">{success}</div>}
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Registering..." : "Register"}
-          </button>
-        </form>
+  <button type="submit" disabled={loading}>
+    {loading ? "Registering..." : "Register"}
+  </button>
+</form>
 
         <div className="auth-footer">
           <p>
