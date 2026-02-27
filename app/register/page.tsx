@@ -1,20 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Register() {
   const [role, setRole] = useState<"customer" | "driver">("customer");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const [form, setForm] = useState<any>({
     name: "",
     surname: "",
     phone: "",
     password: "",
+    confirmPassword: "",
     idPic: null,
     licensePic: null,
+    selfiePic: null,
     vehiclePlate: "",
     vehicleType: "Taxi",
     insurancePic: null,
@@ -29,10 +34,19 @@ export default function Register() {
     }
   };
 
+  const togglePassword = () => setShowPassword(!showPassword);
+  const toggleConfirm = () => setShowConfirm(!showConfirm);
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
+    // Basic validation
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
     if (role === "customer" && (!form.name || !form.phone || !form.password)) {
       setError("All fields are required for customer");
@@ -45,11 +59,13 @@ export default function Register() {
         !form.surname ||
         !form.phone ||
         !form.password ||
+        !form.confirmPassword ||
         !form.idPic ||
         !form.licensePic ||
         !form.vehiclePlate ||
         !form.vehicleType ||
-        !form.insurancePic)
+        !form.insurancePic ||
+        !form.selfiePic)
     ) {
       setError("All fields are required for driver");
       return;
@@ -57,7 +73,6 @@ export default function Register() {
 
     try {
       setLoading(true);
-
       const formData = new FormData();
       Object.keys(form).forEach((key) => {
         if (form[key] !== null) formData.append(key, form[key]);
@@ -70,7 +85,6 @@ export default function Register() {
       });
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.message || "Registration failed");
 
       setSuccess("Registered successfully! You can now login.");
@@ -79,8 +93,10 @@ export default function Register() {
         surname: "",
         phone: "",
         password: "",
+        confirmPassword: "",
         idPic: null,
         licensePic: null,
+        selfiePic: null,
         vehiclePlate: "",
         vehicleType: "Taxi",
         insurancePic: null,
@@ -97,10 +113,11 @@ export default function Register() {
       <div className="auth-card">
         {/* BRANDING */}
         <div className="auth-header">
-          <img
-            src="/bike-logo.png" // replace with your bike logo path
+          <Image
+            src="/bike-logo.png"
             alt="MzaziGo Logo"
-            className="auth-logo"
+            width={35}
+            height={35}
           />
           <h1>MzaziGo Kenya</h1>
         </div>
@@ -143,13 +160,30 @@ export default function Register() {
                 value={form.phone}
                 onChange={handleChange}
               />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
-              />
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={form.password}
+                  onChange={handleChange}
+                />
+                <span onClick={togglePassword} className="eye-toggle">
+                  {showPassword ? "👁️" : "🙈"}
+                </span>
+              </div>
+              <div className="password-wrapper">
+                <input
+                  type={showConfirm ? "text" : "password"}
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={form.confirmPassword}
+                  onChange={handleChange}
+                />
+                <span onClick={toggleConfirm} className="eye-toggle">
+                  {showConfirm ? "👁️" : "🙈"}
+                </span>
+              </div>
             </div>
           )}
 
@@ -176,17 +210,40 @@ export default function Register() {
                 value={form.phone}
                 onChange={handleChange}
               />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
-              />
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={form.password}
+                  onChange={handleChange}
+                />
+                <span onClick={togglePassword} className="eye-toggle">
+                  {showPassword ? "👁️" : "🙈"}
+                </span>
+              </div>
+              <div className="password-wrapper">
+                <input
+                  type={showConfirm ? "text" : "password"}
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={form.confirmPassword}
+                  onChange={handleChange}
+                />
+                <span onClick={toggleConfirm} className="eye-toggle">
+                  {showConfirm ? "👁️" : "🙈"}
+                </span>
+              </div>
+
               <label>ID Picture:</label>
               <input type="file" name="idPic" onChange={handleChange} />
-              <label>Valid License Picture:</label>
+
+              <label>License Picture:</label>
               <input type="file" name="licensePic" onChange={handleChange} />
+
+              <label>Driver Selfie:</label>
+              <input type="file" name="selfiePic" onChange={handleChange} />
+
               <input
                 type="text"
                 name="vehiclePlate"
@@ -198,6 +255,7 @@ export default function Register() {
                 <option value="Taxi">Taxi</option>
                 <option value="Boda">Boda</option>
               </select>
+
               <label>Insurance Document:</label>
               <input type="file" name="insurancePic" onChange={handleChange} />
             </div>
