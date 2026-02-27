@@ -277,3 +277,19 @@ button:hover {
     height: 250px;
   }
 }
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  flex: 1;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  user-select: none;
+}
