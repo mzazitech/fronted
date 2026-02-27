@@ -322,3 +322,112 @@ button:hover {
   background: #111;
   border-top: 1px solid #222;
 }
+/* HOMEPAGE */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  border-radius: 14px;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #00c853;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: #00c853;
+  color: black;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background: #00e676;
+}
+
+/* FEATURES SECTION */
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.feature-card {
+  flex: 1 1 300px;
+  background: #222;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.feature-card h3 {
+  color: #00c853;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #ccc;
+}
+
+/* ABOUT SECTION */
+.about {
+  text-align: center;
+  padding: 30px 20px;
+  background: #111;
+  border-radius: 12px;
+}
+
+.about h2 {
+  color: #00c853;
+  margin-bottom: 15px;
+}
+
+.about p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
