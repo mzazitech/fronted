@@ -284,3 +284,41 @@ button:hover {
     height: 250px;
   }
 }
+/* HEADER */
+.site-header {
+  background: #111;
+  padding: 15px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 22px;
+  color: #00c853;
+  font-weight: 700;
+}
+
+/* FOOTER */
+.site-footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  padding: 15px 0;
+  background: #111;
+  border-top: 1px solid #222;
+}
